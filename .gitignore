@@ -1,0 +1,29 @@
+# Environments and caches
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.hypothesis/
+
+# Build outputs
+build/
+dist/
+*.egg-info/
+
+# Coverage
+.coverage
+.coverage.*
+htmlcov/
+
+# Secrets and local configuration
+.env
+.env.*
+
+# Models and local data (never committed)
+*.safetensors
+*.gguf
+*.onnx
+/models/
+/data/

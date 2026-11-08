@@ -1,0 +1,40 @@
+# Workspace root. It is virtual: it declares no project of its own, only the member
+# packages under packages/ and the tool configuration shared by all of them.
+
+[tool.uv]
+package = false
+# Oldest uv release verified with this workspace (docs/adr/0001). Recent uv releases enforce this
+# setting; older ones ignore it and fail on `--locked` instead.
+required-version = ">=0.5.12"
+
+[tool.uv.workspace]
+members = ["packages/*"]
+
+[dependency-groups]
+dev = [
+    "hypothesis>=6.140",
+    "mypy>=2.0",
+    "pytest>=9.0",
+    "ruff>=0.15",
+]
+
+[tool.pytest.ini_options]
+minversion = "9.0"
+addopts = "--import-mode=importlib"
+testpaths = ["packages"]
+
+[tool.mypy]
+strict = true
+python_version = "3.12"
+namespace_packages = true
+explicit_package_bases = true
+# One entry per workspace member's src directory (see docs/adr/0001).
+mypy_path = ["packages/core/src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+src = ["packages/*/src", "packages/*/tests"]
+
+[tool.ruff.lint]
+select = ["A", "B", "C4", "E", "F", "I", "N", "PIE", "PT", "RUF", "SIM", "UP", "W"]

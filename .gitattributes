@@ -1,0 +1,14 @@
+# Normalise line endings so that tree hashes are identical on every platform.
+* text=auto eol=lf
+
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.pdf binary
+*.zip binary
+*.gz binary
+*.whl binary
+*.onnx binary
+*.safetensors binary
+*.gguf binary
